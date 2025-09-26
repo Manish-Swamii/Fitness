@@ -44,7 +44,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 // Navigation between sections
 function showSection(sectionId, button = null) {
     // Hide all sections
-    const sections = document.querySelectorAll('.calculator-section');
+    const sections = document.querySelectorAll('.calculator-section, .content-section');
     sections.forEach(section => {
         section.style.display = 'none';
         section.classList.remove('active');

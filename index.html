@@ -58,6 +58,10 @@
             <button onclick="showSection('bmr', this)">BMR Calculator</button>
             <button onclick="showSection('calories', this)">Daily Calories</button>
             <button onclick="showSection('water', this)">Water Intake</button>
+            <button onclick="showSection('diet', this)">Diet</button>
+            <button onclick="showSection('workout', this)">Workout</button>
+            <button onclick="showSection('yoga', this)">Yoga</button>
+            <button onclick="showSection('analyze', this)">Analyze</button>
         </nav>
 
         <main style="display: none;">
@@ -149,6 +153,80 @@
                     <button type="submit">Calculate Water Intake</button>
                 </form>
                 <div id="waterResult"></div>
+            </section>
+
+            <!-- Diet Section -->
+            <section id="diet" class="content-section" style="display: none;">
+                <h2>Diet Plans</h2>
+                <div class="diet-item">
+                    <img src="https://via.placeholder.com/300x200?text=Salad" alt="Healthy Salad">
+                    <h3>Healthy Salad</h3>
+                    <p>A mix of greens, vegetables, and lean protein for a balanced meal.</p>
+                </div>
+                <div class="diet-item">
+                    <img src="https://via.placeholder.com/300x200?text=Grilled+Chicken" alt="Grilled Chicken">
+                    <h3>Grilled Chicken with Veggies</h3>
+                    <p>Lean protein with steamed vegetables for weight loss.</p>
+                </div>
+                <div class="diet-item">
+                    <img src="https://via.placeholder.com/300x200?text=Smoothie" alt="Fruit Smoothie">
+                    <h3>Fruit Smoothie</h3>
+                    <p>Blend of fruits and yogurt for a quick, nutritious snack.</p>
+                </div>
+            </section>
+
+            <!-- Workout Section -->
+            <section id="workout" class="content-section" style="display: none;">
+                <h2>Workout Routines</h2>
+                <div class="workout-item">
+                    <img src="https://via.placeholder.com/300x200?text=Push-ups" alt="Push-ups">
+                    <h3>Push-ups</h3>
+                    <p>Build upper body strength. 3 sets of 10-15 reps.</p>
+                </div>
+                <div class="workout-item">
+                    <img src="https://via.placeholder.com/300x200?text=Squats" alt="Squats">
+                    <h3>Squats</h3>
+                    <p>Strengthen legs and glutes. 3 sets of 12-15 reps.</p>
+                </div>
+                <div class="workout-item">
+                    <img src="https://via.placeholder.com/300x200?text=Plank" alt="Plank">
+                    <h3>Plank</h3>
+                    <p>Core exercise. Hold for 20-30 seconds, 3 sets.</p>
+                </div>
+            </section>
+
+            <!-- Yoga Section -->
+            <section id="yoga" class="content-section" style="display: none;">
+                <h2>Yoga Poses</h2>
+                <div class="yoga-item">
+                    <img src="https://via.placeholder.com/300x200?text=Downward+Dog" alt="Downward Dog">
+                    <h3>Downward Dog</h3>
+                    <p>Stretch the back and hamstrings. Hold for 30 seconds.</p>
+                </div>
+                <div class="yoga-item">
+                    <img src="https://via.placeholder.com/300x200?text=Warrior+Pose" alt="Warrior Pose">
+                    <h3>Warrior Pose</h3>
+                    <p>Build strength and balance. Hold for 20-30 seconds per side.</p>
+                </div>
+                <div class="yoga-item">
+                    <img src="https://via.placeholder.com/300x200?text=Tree+Pose" alt="Tree Pose">
+                    <h3>Tree Pose</h3>
+                    <p>Improve balance and focus. Hold for 20 seconds per leg.</p>
+                </div>
+            </section>
+
+            <!-- Analyze Section -->
+            <section id="analyze" class="content-section" style="display: none;">
+                <h2>Progress Analytics</h2>
+                <p>Track your fitness progress with visual charts.</p>
+                <div class="chart-placeholder">
+                    <img src="https://via.placeholder.com/400x200?text=Weight+Chart" alt="Weight Progress Chart">
+                    <p>Weight Progress Over Time</p>
+                </div>
+                <div class="chart-placeholder">
+                    <img src="https://via.placeholder.com/400x200?text=Calories+Chart" alt="Calories Burned Chart">
+                    <p>Calories Burned Weekly</p>
+                </div>
             </section>
         </main>
     </div>

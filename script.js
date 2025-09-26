@@ -3,12 +3,12 @@ function showAuth(section) {
     const authSections = document.querySelectorAll('.auth-section');
     authSections.forEach(sec => sec.style.display = 'none');
     document.getElementById(section).style.display = 'block';
+    document.querySelector('header').style.display = 'none';
 }
 
 function showApp() {
     document.querySelectorAll('.auth-section').forEach(sec => sec.style.display = 'none');
-    document.querySelector('header').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
+    document.querySelector('header').style.display = 'block';
     document.querySelector('nav').style.display = 'flex';
     document.querySelector('main').style.display = 'block';
     showSection('bmi');
@@ -227,7 +227,12 @@ document.getElementById('waterForm').addEventListener('submit', function(e) {
     `;
 });
 
-// Initialize - show signup section by default
+// Initialize - check if user exists, show login; else signup
 document.addEventListener('DOMContentLoaded', function() {
-    showAuth('signup');
+    const stored = localStorage.getItem('fitnessUser');
+    if (stored) {
+        showAuth('login');
+    } else {
+        showAuth('signup');
+    }
 });

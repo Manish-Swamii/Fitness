@@ -120,6 +120,23 @@ nav button.active {
     text-decoration: underline;
 }
 
+.app-description {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.app-description h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.app-description p {
+    margin: 8px 0;
+    color: #555;
+    font-size: 1em;
+}
+
 /* Main Content */
 main {
     padding: 20px 0;

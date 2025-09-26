@@ -64,6 +64,27 @@ nav button.active {
     background: #764ba2;
 }
 
+/* Dashboard */
+#dashboard {
+    text-align: center;
+    padding: 20px 0;
+    background: #f8f9ff;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+#dashboard h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#dashboard p {
+    margin: 10px 0;
+    color: #555;
+    font-size: 1.1em;
+}
+
 /* Auth Sections */
 .auth-section {
     display: none;

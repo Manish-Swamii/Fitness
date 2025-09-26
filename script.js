@@ -7,6 +7,8 @@ function showAuth(section) {
 
 function showApp() {
     document.querySelectorAll('.auth-section').forEach(sec => sec.style.display = 'none');
+    document.querySelector('header').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
     document.querySelector('nav').style.display = 'flex';
     document.querySelector('main').style.display = 'block';
     showSection('bmi');

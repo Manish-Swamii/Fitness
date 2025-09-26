@@ -13,14 +13,44 @@
             <p>Calculate your BMI, BMR, daily calorie needs, and more to track your health.</p>
         </header>
 
-        <nav>
+        <!-- Signup Section -->
+        <section id="signup" class="auth-section">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <label for="signupUsername">Username:</label>
+                <input type="text" id="signupUsername" required>
+
+                <label for="signupPassword">Password:</label>
+                <input type="password" id="signupPassword" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="showAuth('login')">Login</a></p>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login" class="auth-section" style="display: none;">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" required>
+
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="showAuth('signup')">Sign Up</a></p>
+        </section>
+
+        <nav style="display: none;">
             <button onclick="showSection('bmi', this)">BMI Calculator</button>
             <button onclick="showSection('bmr', this)">BMR Calculator</button>
             <button onclick="showSection('calories', this)">Daily Calories</button>
             <button onclick="showSection('water', this)">Water Intake</button>
         </nav>
 
-        <main>
+        <main style="display: none;">
             <!-- BMI Calculator -->
             <section id="bmi" class="calculator-section">
                 <h2>BMI Calculator</h2>

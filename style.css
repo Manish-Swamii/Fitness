@@ -64,6 +64,41 @@ nav button.active {
     background: #764ba2;
 }
 
+/* Auth Sections */
+.auth-section {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.auth-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2em;
+}
+
+.auth-section form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.auth-section p {
+    margin-top: 20px;
+}
+
+.auth-section a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.auth-section a:hover {
+    text-decoration: underline;
+}
+
 /* Main Content */
 main {
     padding: 20px 0;

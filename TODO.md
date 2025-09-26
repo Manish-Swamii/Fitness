@@ -1,0 +1,4 @@
+- [x] Modify index.html to add signup and login sections before nav, hide nav and main initially
+- [x] Update script.js to add signup, login logic, and section switching
+- [x] Update style.css for signup/login form styling
+- [x] Test the flow by opening index.html

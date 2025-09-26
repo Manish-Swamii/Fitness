@@ -58,10 +58,15 @@
             <button onclick="showSection('bmr', this)">BMR Calculator</button>
             <button onclick="showSection('calories', this)">Daily Calories</button>
             <button onclick="showSection('water', this)">Water Intake</button>
-            <button onclick="showSection('diet', this)">Diet</button>
-            <button onclick="showSection('workout', this)">Workout</button>
-            <button onclick="showSection('yoga', this)">Yoga</button>
-            <button onclick="showSection('analyze', this)">Analyze</button>
+            <div class="menu-container">
+                <button class="menu-btn" onclick="toggleMenu()">⋮</button>
+                <div class="submenu" id="submenu">
+                    <button onclick="showSection('diet', this)">Diet</button>
+                    <button onclick="showSection('workout', this)">Workout</button>
+                    <button onclick="showSection('yoga', this)">Yoga</button>
+                    <button onclick="showSection('analyze', this)">Analyze</button>
+                </div>
+            </div>
         </nav>
 
         <main style="display: none;">

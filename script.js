@@ -66,6 +66,22 @@ function showSection(sectionId, button = null) {
             buttons[0].classList.add('active');
         }
     }
+
+    // Close submenu if open
+    const submenu = document.getElementById('submenu');
+    if (submenu) {
+        submenu.style.display = 'none';
+    }
+}
+
+// Toggle menu
+function toggleMenu() {
+    const submenu = document.getElementById('submenu');
+    if (submenu.style.display === 'block') {
+        submenu.style.display = 'none';
+    } else {
+        submenu.style.display = 'block';
+    }
 }
 
 // BMI Calculator

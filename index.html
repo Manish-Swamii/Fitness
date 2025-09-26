@@ -54,7 +54,7 @@
         </section>
 
         <nav style="display: none;">
-            <button onclick="showSection('bmi', this)">BMI Calculator</button>
+            <button onclick="showSection('bmi', this)">Body Fat Calculator</button>
             <button onclick="showSection('bmr', this)">BMR Calculator</button>
             <button onclick="showSection('calories', this)">Daily Calories</button>
             <button onclick="showSection('water', this)">Water Intake</button>
@@ -70,17 +70,36 @@
         </nav>
 
         <main style="display: none;">
-            <!-- BMI Calculator -->
+            <!-- Body Fat Calculator -->
             <section id="bmi" class="calculator-section">
-                <h2>BMI Calculator</h2>
+                <h2>Body Fat Calculator</h2>
                 <form id="bmiForm">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" required>
+
+                    <label for="gender">Gender:</label>
+                    <select id="gender" required>
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
                     <label for="weight">Weight (kg):</label>
                     <input type="number" id="weight" step="0.1" required>
 
                     <label for="height">Height (cm):</label>
                     <input type="number" id="height" step="0.1" required>
 
-                    <button type="submit">Calculate BMI</button>
+                    <label for="neck">Neck (cm):</label>
+                    <input type="number" id="neck" step="0.1" required>
+
+                    <label for="waist">Waist (cm):</label>
+                    <input type="number" id="waist" step="0.1" required>
+
+                    <label for="hip">Hip (cm):</label>
+                    <input type="number" id="hip" step="0.1" required>
+
+                    <button type="submit">Calculate Body Fat</button>
                 </form>
                 <div id="bmiResult"></div>
             </section>

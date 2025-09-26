@@ -84,58 +84,64 @@ function toggleMenu() {
     }
 }
 
-// BMI Calculator
+// Body Fat Calculator
 document.getElementById('bmiForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
+    const age = parseInt(document.getElementById('age').value);
+    const gender = document.getElementById('gender').value;
     const weight = parseFloat(document.getElementById('weight').value);
     const height = parseFloat(document.getElementById('height').value);
+    const neck = parseFloat(document.getElementById('neck').value);
+    const waist = parseFloat(document.getElementById('waist').value);
+    const hip = parseFloat(document.getElementById('hip').value);
     
-    if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+    if (isNaN(age) || isNaN(weight) || isNaN(height) || isNaN(neck) || isNaN(waist) || isNaN(hip) || !gender || age <= 0 || weight <= 0 || height <= 0 || neck <= 0 || waist <= 0 || hip <= 0) {
         document.getElementById('bmiResult').innerHTML = '<p style="color: red;">Please enter valid values.</p>';
         return;
     }
     
-    const heightInMeters = height / 100;
-    const bmi = weight / (heightInMeters * heightInMeters);
-    const bmiRounded = bmi.toFixed(2);
+    // Convert cm to inches for formula
+    const heightIn = height / 2.54;
+    const neckIn = neck / 2.54;
+    const waistIn = waist / 2.54;
+    const hipIn = hip / 2.54;
+    
+    let bodyFat;
+    if (gender === 'male') {
+        bodyFat = 86.010 * Math.log10(waistIn - neckIn) - 70.041 * Math.log10(heightIn) + 36.76;
+    } else {
+        bodyFat = 163.205 * Math.log10(waistIn + hipIn - neckIn) - 97.684 * Math.log10(heightIn) - 78.387;
+    }
+    
+    const bodyFatRounded = bodyFat.toFixed(1);
     
     let category = '';
     let categoryClass = '';
-    if (bmi < 18.5) {
-        category = 'Underweight';
-        categoryClass = 'bmi-underweight';
-    } else if (bmi < 25) {
-        category = 'Normal weight';
-        categoryClass = 'bmi-normal';
-    } else if (bmi < 30) {
-        category = 'Overweight';
-        categoryClass = 'bmi-overweight';
+    if (bodyFat < 14) {
+        category = 'Athletic';
+        categoryClass = 'bf-athletic';
+    } else if (bodyFat < 18) {
+        category = 'Fit';
+        categoryClass = 'bf-fit';
+    } else if (bodyFat < 25) {
+        category = 'Average';
+        categoryClass = 'bf-average';
     } else {
-        category = 'Obese';
-        categoryClass = 'bmi-obese';
+        category = 'Overweight';
+        categoryClass = 'bf-overweight';
     }
     
     document.getElementById('bmiResult').innerHTML = `
-        <div class="result-value">${bmiRounded}</div>
+        <div class="result-value">${bodyFatRounded}%</div>
         <div class="result-category ${categoryClass}">${category}</div>
         <div class="result-explanation">
-            <p>Your BMI is ${bmiRounded}, which falls in the ${category} category.</p>
-            <p><strong>Advice:</strong> ${getBMISuggestion(category)}</p>
+            <p>Your body fat percentage is ${bodyFatRounded}%, which falls in the ${category} category.</p>
+            <p><strong>Advice:</strong> Maintain a balanced diet and exercise routine.</p>
         </div>
     `;
     document.getElementById('bmiResult').className = ` ${categoryClass}`;
 });
-
-function getBMISuggestion(category) {
-    const suggestions = {
-        'Underweight': 'Consider consulting a nutritionist to gain healthy weight.',
-        'Normal weight': 'Great! Maintain your healthy lifestyle.',
-        'Overweight': 'Consider increasing physical activity and balanced diet.',
-        'Obese': 'Seek professional medical advice for weight management.'
-    };
-    return suggestions[category] || 'Maintain a healthy lifestyle.';
-}
 
 // BMR Calculator
 document.getElementById('bmrForm').addEventListener('submit', function(e) {

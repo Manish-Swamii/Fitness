@@ -216,9 +216,23 @@ main {
     align-items: center;
     margin: 20px 0;
     padding: 15px;
-    background: #f8f9ff;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.diet-item {
+    background: linear-gradient(135deg, #96CEB4 0%, #FFEB99 100%);
+    color: #2d5a27;
+}
+
+.workout-item {
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+    color: #2d1b69;
+}
+
+.yoga-item {
+    background: linear-gradient(135deg, #A8E6CF 0%, #DCE35B 100%);
+    color: #1a3c34;
 }
 
 .diet-item img, .workout-item img, .yoga-item img {
@@ -395,13 +409,29 @@ button[type="submit"]:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* Dumbbell Animation */
+/* Enhanced Dumbbell Animation with Color Shift */
 @keyframes dumbbellLift {
     0% { transform: rotate(0deg) translateY(0px); }
     25% { transform: rotate(10deg) translateY(-10px); }
     50% { transform: rotate(0deg) translateY(0px); }
     75% { transform: rotate(-10deg) translateY(-10px); }
     100% { transform: rotate(0deg) translateY(0px); }
+}
+
+@keyframes colorShift {
+    0% { background: linear-gradient(90deg, #8B4513 0%, #A0522D 50%, #8B4513 100%); }
+    25% { background: linear-gradient(90deg, #FF6B6B 0%, #4ECDC4 50%, #FF6B6B 100%); }
+    50% { background: linear-gradient(90deg, #45B7D1 0%, #96CEB4 50%, #45B7D1 100%); }
+    75% { background: linear-gradient(90deg, #FECA57 0%, #FF9FF3 50%, #FECA57 100%); }
+    100% { background: linear-gradient(90deg, #8B4513 0%, #A0522D 50%, #8B4513 100%); }
+}
+
+@keyframes weightColorShift {
+    0% { background: #FFD700; }
+    25% { background: #FF6B6B; }
+    50% { background: #4ECDC4; }
+    75% { background: #FECA57; }
+    100% { background: #FFD700; }
 }
 
 .dumbbell-icon {
@@ -412,7 +442,7 @@ button[type="submit"]:hover {
     position: relative;
     display: inline-block;
     margin: 10px;
-    animation: dumbbellLift 2s ease-in-out infinite;
+    animation: dumbbellLift 2s ease-in-out infinite, colorShift 3s ease-in-out infinite;
 }
 
 .dumbbell-icon::before,
@@ -425,6 +455,7 @@ button[type="submit"]:hover {
     background: #FFD700;
     border-radius: 50%;
     transform: translateY(-50%);
+    animation: weightColorShift 3s ease-in-out infinite;
 }
 
 .dumbbell-icon::before {
@@ -436,5 +467,5 @@ button[type="submit"]:hover {
 }
 
 .workout-item .dumbbell-icon {
-    animation-duration: 1.5s;
+    animation-duration: 1.5s, 2.5s;
 }

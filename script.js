@@ -11,7 +11,7 @@ function showApp() {
     document.querySelector('header').style.display = 'block';
     document.querySelector('nav').style.display = 'flex';
     document.querySelector('main').style.display = 'block';
-    showSection('bmi');
+    showSection('discover');
 }
 
 // Signup
@@ -35,6 +35,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const password = document.getElementById('loginPassword').value;
     const stored = JSON.parse(localStorage.getItem('fitnessUser'));
     if (stored && stored.username === username && stored.password === password) {
+        localStorage.setItem('isLoggedIn', 'true');
         showApp();
     } else {
         alert('Invalid credentials.');
@@ -249,12 +250,21 @@ document.getElementById('waterForm').addEventListener('submit', function(e) {
     `;
 });
 
+function checkLoggedIn() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    if (isLoggedIn) {
+        showApp();
+    } else {
+        const stored = localStorage.getItem('fitnessUser');
+        if (stored) {
+            showAuth('login');
+        } else {
+            showAuth('signup');
+        }
+    }
+}
+
 // Initialize - check if user exists, show login; else signup
 document.addEventListener('DOMContentLoaded', function() {
-    const stored = localStorage.getItem('fitnessUser');
-    if (stored) {
-        showAuth('login');
-    } else {
-        showAuth('signup');
-    }
+    checkLoggedIn();
 });

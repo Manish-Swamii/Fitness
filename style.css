@@ -394,3 +394,47 @@ button[type="submit"]:hover {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* Dumbbell Animation */
+@keyframes dumbbellLift {
+    0% { transform: rotate(0deg) translateY(0px); }
+    25% { transform: rotate(10deg) translateY(-10px); }
+    50% { transform: rotate(0deg) translateY(0px); }
+    75% { transform: rotate(-10deg) translateY(-10px); }
+    100% { transform: rotate(0deg) translateY(0px); }
+}
+
+.dumbbell-icon {
+    width: 50px;
+    height: 30px;
+    background: linear-gradient(90deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+    border-radius: 15px;
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    animation: dumbbellLift 2s ease-in-out infinite;
+}
+
+.dumbbell-icon::before,
+.dumbbell-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.dumbbell-icon::before {
+    left: -10px;
+}
+
+.dumbbell-icon::after {
+    right: -10px;
+}
+
+.workout-item .dumbbell-icon {
+    animation-duration: 1.5s;
+}

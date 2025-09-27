@@ -1,4 +1,6 @@
-- [x] Modify index.html to add signup and login sections before nav, hide nav and main initially
-- [x] Update script.js to add signup, login logic, and section switching
-- [x] Update style.css for signup/login form styling
-- [x] Test the flow by opening index.html
+# TODO List for Adding "Discover Your Fitness Journey" Section
+
+- [ ] Add navigation button for "Discover Your Fitness Journey" in index.html nav bar
+- [ ] Create new content section with id="discover" in main area of index.html
+- [ ] Update script.js to handle showSection('discover') for the new button
+- [ ] Test the new section by logging in and clicking the button

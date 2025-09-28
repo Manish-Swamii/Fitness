@@ -84,13 +84,13 @@ function showSection(sectionId, button = null) {
 document.getElementById('bmiForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const age = parseInt(document.getElementById('age').value);
-    const gender = document.getElementById('gender').value;
-    const weight = parseFloat(document.getElementById('weight').value);
-    const height = parseFloat(document.getElementById('height').value);
-    const neck = parseFloat(document.getElementById('neck').value);
-    const waist = parseFloat(document.getElementById('waist').value);
-    const hip = parseFloat(document.getElementById('hip').value);
+    const age = parseInt(document.getElementById('bmiAge').value);
+    const gender = document.getElementById('bmiGender').value;
+    const weight = parseFloat(document.getElementById('bmiWeight').value);
+    const height = parseFloat(document.getElementById('bmiHeight').value);
+    const neck = parseFloat(document.getElementById('bmiNeck').value);
+    const waist = parseFloat(document.getElementById('bmiWaist').value);
+    const hip = parseFloat(document.getElementById('bmiHip').value);
     
     if (isNaN(age) || isNaN(weight) || isNaN(height) || isNaN(neck) || isNaN(waist) || isNaN(hip) || !gender || age <= 0 || weight <= 0 || height <= 0 || neck <= 0 || waist <= 0 || hip <= 0) {
         document.getElementById('bmiResult').innerHTML = '<p style="color: red;">Please enter valid values.</p>';
@@ -143,8 +143,8 @@ document.getElementById('bmiForm').addEventListener('submit', function(e) {
 document.getElementById('bmrForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const age = parseInt(document.getElementById('age').value);
-    const gender = document.getElementById('gender').value;
+    const age = parseInt(document.getElementById('bmrAge').value);
+    const gender = document.getElementById('bmrGender').value;
     const weight = parseFloat(document.getElementById('bmrWeight').value);
     const height = parseFloat(document.getElementById('bmrHeight').value);
     

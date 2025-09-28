@@ -20,6 +20,7 @@ function showAuthModal(section) {
 function showApp() {
     document.querySelectorAll('.auth-section-modal').forEach(sec => sec.style.display = 'none');
     document.getElementById('authModal').style.display = 'none';
+    document.getElementById('hero').style.display = 'flex';
     document.getElementById('nav').style.display = 'block';
     document.getElementById('main').style.display = 'block';
     showSection('discover');

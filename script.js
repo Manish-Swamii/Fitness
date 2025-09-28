@@ -1,16 +1,26 @@
-// Auth sections
-function showAuth(section) {
-    const authSections = document.querySelectorAll('.auth-section');
-    authSections.forEach(sec => sec.style.display = 'none');
-    document.getElementById(section).style.display = 'block';
-    document.querySelector('header').style.display = 'none';
+// Auth Modal Functions
+function toggleAuthModal() {
+    const modal = document.getElementById('authModal');
+    if (modal.style.display === 'flex') {
+        modal.style.display = 'none';
+    } else {
+        modal.style.display = 'flex';
+        showAuthModal('signup'); // Default to signup
+    }
 }
 
+function showAuthModal(section) {
+    const authSections = document.querySelectorAll('.auth-section-modal');
+    authSections.forEach(sec => sec.style.display = 'none');
+    document.getElementById(section + 'Modal').style.display = 'block';
+}
+
+// Show App (after login)
 function showApp() {
-    document.querySelectorAll('.auth-section').forEach(sec => sec.style.display = 'none');
-    document.querySelector('header').style.display = 'block';
-    document.querySelector('nav').style.display = 'flex';
-    document.querySelector('main').style.display = 'block';
+    document.querySelectorAll('.auth-section-modal').forEach(sec => sec.style.display = 'none');
+    document.getElementById('authModal').style.display = 'none';
+    document.getElementById('nav').style.display = 'block';
+    document.getElementById('main').style.display = 'block';
     showSection('discover');
 }
 
@@ -22,7 +32,7 @@ document.getElementById('signupForm').addEventListener('submit', function(e) {
     if (username && password) {
         localStorage.setItem('fitnessUser', JSON.stringify({username, password}));
         alert('Signup successful! Please login.');
-        showAuth('login');
+        showAuthModal('login');
     } else {
         alert('Please fill all fields.');
     }
@@ -53,36 +63,21 @@ function showSection(sectionId, button = null) {
 
     // Show selected section
     const selectedSection = document.getElementById(sectionId);
-    selectedSection.style.display = 'block';
-    selectedSection.classList.add('active');
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+        selectedSection.classList.add('active');
+    }
 
-    // Update active button
-    const buttons = document.querySelectorAll('nav button');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    if (button) {
+    // Update active nav link (optional enhancement)
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (button && button.classList.contains('nav-link')) {
         button.classList.add('active');
-    } else {
-        // For initial load, activate first button
-        if (buttons.length > 0) {
-            buttons[0].classList.add('active');
-        }
     }
 
-    // Close submenu if open
-    const submenu = document.getElementById('submenu');
-    if (submenu) {
-        submenu.style.display = 'none';
-    }
-}
-
-// Toggle menu
-function toggleMenu() {
-    const submenu = document.getElementById('submenu');
-    if (submenu.style.display === 'block') {
-        submenu.style.display = 'none';
-    } else {
-        submenu.style.display = 'block';
-    }
+    // Close dropdowns if open
+    const dropdowns = document.querySelectorAll('.dropdown-menu');
+    dropdowns.forEach(dropdown => dropdown.style.display = 'none');
 }
 
 // Body Fat Calculator
@@ -141,7 +136,7 @@ document.getElementById('bmiForm').addEventListener('submit', function(e) {
             <p><strong>Advice:</strong> Maintain a balanced diet and exercise routine.</p>
         </div>
     `;
-    document.getElementById('bmiResult').className = ` ${categoryClass}`;
+    document.getElementById('bmiResult').className = `result-card ${categoryClass}`;
 });
 
 // BMR Calculator
@@ -253,18 +248,22 @@ document.getElementById('waterForm').addEventListener('submit', function(e) {
 function checkLoggedIn() {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     if (isLoggedIn) {
-        showApp();
+        document.getElementById('nav').style.display = 'block';
+        document.getElementById('main').style.display = 'block';
+        showSection('discover');
     } else {
         const stored = localStorage.getItem('fitnessUser');
         if (stored) {
-            showAuth('login');
+            toggleAuthModal();
+            showAuthModal('login');
         } else {
-            showAuth('signup');
+            toggleAuthModal();
+            showAuthModal('signup');
         }
     }
 }
 
-// Initialize - check if user exists, show login; else signup
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
     checkLoggedIn();
 });

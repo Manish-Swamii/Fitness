@@ -5,7 +5,7 @@ Transform the current fitness calculator SPA into a modern design mimicking the 
 
 ## Steps
 
-- [ ] **Step 1: Update index.html**
+- [x] **Step 1: Update index.html**
   - Add Google Fonts (Poppins).
   - Create hero section with title, subtitle, buttons, wave background (SVG or div).
   - Restructure nav as fixed top bar with submenus for calculators/plans.
@@ -14,7 +14,7 @@ Transform the current fitness calculator SPA into a modern design mimicking the 
   - Preserve all forms, inputs, results divs, and IDs for JS compatibility.
   - Add IDs/classes for new elements (e.g., #hero, .modal, .nav-link).
 
-- [ ] **Step 2: Overhaul style.css**
+- [x] **Step 2: Overhaul style.css**
   - Update colors: Primary #A100A1 (purple), light bg #F8F9FF, text #333/#555.
   - Fonts: 'Poppins', sans-serif; large bold headings.
   - Style hero: Full-width, gradient overlay, centered text/buttons, wave animation.
@@ -26,19 +26,19 @@ Transform the current fitness calculator SPA into a modern design mimicking the 
   - Animations: Wave movement, button scales, preserve/enhance dumbbell.
   - Responsive: Mobile stacking, nav hamburger if needed.
 
-- [ ] **Step 3: Tweak script.js**
+- [x] **Step 3: Tweak script.js**
   - Update showAuth: Open/close modal instead of sections.
   - Adapt showSection: Handle new nav links/submenu toggles.
   - Add modal event listeners (close on outside click, sign in button).
   - Hero buttons: "Get Started" -> showSection('bmi'), "Learn More" -> 'discover'.
   - Preserve all calculations, localStorage, init logic.
 
-- [ ] **Step 4: Testing**
+- [x] **Step 4: Testing**
   - Use browser_action to launch local index.html.
   - Verify: Layout (hero/nav/sections), animations (waves/fades), functionality (auth, calculate BMI/BMR/etc., toggle sections).
   - Check responsive on mobile view if possible.
   - Close browser after verification.
 
-- [ ] **Step 5: Final Review**
+- [x] **Step 5: Final Review**
   - Update TODO.md with completion notes.
   - Attempt completion with summary and demo command (e.g., open index.html).

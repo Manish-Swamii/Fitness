@@ -16,12 +16,30 @@ function showAuthModal(section) {
 }
 
 // Show App (after login)
+// Show App (after login)
 function showApp() {
     document.querySelectorAll('.auth-section-modal').forEach(sec => sec.style.display = 'none');
     document.getElementById('authModal').style.display = 'none';
     document.getElementById('nav').style.display = 'block';
     document.getElementById('main').style.display = 'block';
     showSection('discover');
+}
+
+function updateUserMenu(username) {
+    document.getElementById('usernameDisplay').textContent = username;
+    document.getElementById('userMenu').style.display = 'flex';
+    document.getElementById('signInBtn').style.display = 'none';
+}
+
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('currentUser');
+    document.getElementById('userMenu').style.display = 'none';
+    document.getElementById('signInBtn').style.display = 'block';
+    document.getElementById('nav').style.display = 'none';
+    document.getElementById('main').style.display = 'none';
+    toggleAuthModal();
+    showAuthModal('login');
 }
 
 // Signup
@@ -46,7 +64,9 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const stored = JSON.parse(localStorage.getItem('fitnessUser'));
     if (stored && stored.username === username && stored.password === password) {
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('currentUser', username);
         showApp();
+        updateUserMenu(username);
     } else {
         alert('Invalid credentials.');
     }
@@ -245,11 +265,15 @@ document.getElementById('waterForm').addEventListener('submit', function(e) {
     `;
 });
 
+// Initialize
 function checkLoggedIn() {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     if (isLoggedIn) {
+        const currentUser = localStorage.getItem('currentUser') || JSON.parse(localStorage.getItem('fitnessUser')).username;
         document.getElementById('nav').style.display = 'block';
         document.getElementById('main').style.display = 'block';
+        updateUserMenu(currentUser);
+        document.getElementById('signInBtn').style.display = 'none';
         showSection('discover');
     } else {
         const stored = localStorage.getItem('fitnessUser');

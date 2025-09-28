@@ -250,6 +250,35 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.username {
+    color: white;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.btn-logout {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: white;
+    color: #A100A1;
+    transform: translateY(-1px);
+}
+
 /* Modal */
 .modal {
     position: fixed;

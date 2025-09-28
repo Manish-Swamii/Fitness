@@ -59,7 +59,11 @@
                     <a href="#" class="nav-link" onclick="showSection('discover'); return false;">About</a>
                 </li>
             </ul>
-            <button class="btn-signin" onclick="toggleAuthModal()">Sign In</button>
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <span class="username" id="usernameDisplay"></span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+            <button class="btn-signin" id="signInBtn" onclick="toggleAuthModal()">Sign In</button>
         </div>
     </nav>
 
